@@ -24,7 +24,7 @@ def add_two_small_numbers(a, b):
         if a > 100 or b > 100:
             raise Exception('both numbers must be smaller than or equal to 100')
     except ValueError as valerr:
-         return valerr
+        return valerr
     except Exception as e:
         return "interval error occures " + str(e)
     except:

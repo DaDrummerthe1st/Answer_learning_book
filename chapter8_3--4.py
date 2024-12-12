@@ -15,22 +15,27 @@ print(dived_by_zero_to_raise_exception(5, b=123))
 # Skapa en funktion add_two_small_numbers som adderar två tal.
 # Om något av talen är större än 100 så skall du lyfta en exception
 # och skriva ut meddelandet “both numbers must be smaller than or equal to 100”.
-def add_two_small_numbers(a, b):
+class Above100Exception(BaseException):
+    ...
+
+
+def add_two_small_numbers(a: int, b: int) -> int:
     """Adds two numbers (a, b)
     >>> print(add_two_small_numbers(6000, 23))
     >>> print(add_two_small_numbers(14,6))
+    >>> print(add_two_small_numbers("tisdag", 6))
     """
     try:
         if a > 100 or b > 100:
-            raise Exception('both numbers must be smaller than or equal to 100')
-    except ValueError as valerr:
-        return valerr
-    except Exception as e:
-        return "interval error occures " + str(e)
+            raise Above100Exception('both numbers must be smaller than or equal to 100')
+    except TypeError as typeErr:
+        return "an error in typing occured: " + str(typeErr)
+    except Above100Exception as above100:
+        return above100
     except:
         return "general exception ocured " + str(Exception)
     else:
-            return a + b
+        return a + b
     
 print(add_two_small_numbers(14, 6))
 print(add_two_small_numbers("tisdag", 6))

@@ -23,10 +23,13 @@ def add_two_small_numbers(a, b):
     try:
         if a > 100 or b > 100:
             raise Exception('both numbers must be smaller than or equal to 100')
+    except ValueError as valerr:
+         return valerr
     except Exception as e:
             return e
     else:
             return a + b
     
-print(add_two_small_numbers(6000, 23))
 print(add_two_small_numbers(14,6))
+print(add_two_small_numbers("tisdag",6))
+print(add_two_small_numbers(6000, 23))

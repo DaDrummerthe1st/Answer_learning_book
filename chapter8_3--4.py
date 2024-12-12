@@ -26,10 +26,12 @@ def add_two_small_numbers(a, b):
     except ValueError as valerr:
          return valerr
     except Exception as e:
-            return e
+        return "interval error occures " + str(e)
+    except:
+        return "general exception ocured " + str(Exception)
     else:
             return a + b
     
-print(add_two_small_numbers(14,6))
-print(add_two_small_numbers("tisdag",6))
+print(add_two_small_numbers(14, 6))
+print(add_two_small_numbers("tisdag", 6))
 print(add_two_small_numbers(6000, 23))

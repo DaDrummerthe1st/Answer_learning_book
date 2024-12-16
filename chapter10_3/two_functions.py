@@ -7,10 +7,13 @@ def add_two_numbers(x: int, y=5: int) --> None:
     >>> add_two_numbers("torsdag")
     exception
     
+    
     """
     try:
         if x == int or y == int:
             return x + y
+    except SyntaxError as syntax_e:
+        print("Syntax Error: " + str(syntax_e))
     except Exception as e:
         print("Unknown error: " + str(e))
     except:
